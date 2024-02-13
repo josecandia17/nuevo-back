@@ -17,7 +17,7 @@ class AuthController extends Controller
         ]);
         //verificar 
         if(!Auth::attempt($credenciales)){
-            return response()->json(["message"=> "No autenticado"]);
+            return response()->json(["message"=> "No autenticado"],401);
         }
         //generar token 
         $usuario = Auth::user();
@@ -47,7 +47,7 @@ class AuthController extends Controller
         $usuario->password = bcrypt($request->password);
         $usuario->save();
 
-        return response()->json(["mensaje" => "Usuario Registrado"], 201);
+        return response()->json(["mensaje" => "Usuario Registrado"], 401);
     }
     //
     public function funPerfil()

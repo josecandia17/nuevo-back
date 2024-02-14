@@ -32,7 +32,7 @@ class AuthController extends Controller
     //
     public function funRegistro(Request $request)
     {
-        //validar gatos
+        //validar datos
         $request->validate([
             "name" => "required",
             "email" => "required|email|unique:users",
@@ -47,7 +47,7 @@ class AuthController extends Controller
         $usuario->password = bcrypt($request->password);
         $usuario->save();
 
-        return response()->json(["mensaje" => "Usuario Registrado"], 401);
+        return response()->json(["mensaje" => "Usuario Registrado"], 201);
     }
     //
     public function funPerfil()

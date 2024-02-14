@@ -3,10 +3,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "name": "juna",
-    "email": "juna@gmail.com",
-    "password": "juna123456",
-    "c_password": "juna123456"
+    "name": "jun",
+    "email": "jun@gmail.com",
+    "password": "jun123456",
+    "c_password": "jun123456"
 }
 
 ### login
@@ -17,20 +17,20 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "juna@gmail.com",
-    "password": "juna123456"
+    "email": "jun@gmail.com",
+    "password": "jun123456"
     
 }
 
 ### perfil 
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
-Authorization: Bearer 34|k8rKm1hgUTEutQoycnUvd0BW8MMNmgl31HUf5kul2c68737a
+Authorization: Bearer 56|KOYDWVIHY2PuC9415MlIxf9zQHljK8PN4Bw0TeZ45a2007ad
 
 ### perfil 2 
 GET http://127.0.0.1:8000/api/v1/auth/perfil
 Accept: application/json
-Authorization: Bearer 9|Sr1GyBY8LcYmE5jAk9ef2UScJ6ilRPw5LAVxOwav63492834
+Authorization: Bearer 56|KOYDWVIHY2PuC9415MlIxf9zQHljK8PN4Bw0TeZ45a2007ad
 
 
 ### logout

@@ -4,24 +4,40 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\UsuarioController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//rutas autecticacion 
-Route::prefix('/v1/auth')->group(function () {
+// rutas auth
+Route::prefix('/v1/auth')->group(function (){
 
     Route::post('/login', [AuthController::class, "funLogin"]);
     Route::post('/register', [AuthController::class, "funRegistro"]);
 
-    Route::middleware('auth:sanctum')->group(function () {
+    Route::middleware('auth:sanctum')->group(function(){
         Route::get('/perfil', [AuthController::class, "funPerfil"]);
         Route::post('/logout', [AuthController::class, "funSalir"]);
-    });
+    });   
+
 });
 
-Route::apiResource("categoria", CategoriaController::class);
+Route::middleware('auth:sanctum')->group(function(){
 
-Route::apiResource("podructo", ProductoController::class);
+    Route::post("podructo/{id}/actualizar-imagen",[ProductoController::class, "actualizarImagen"]);
+
+    Route::apiResource("categoria", CategoriaController::class);
+    Route::apiResource("usuario", UsuarioController::class);
+    Route::apiResource("podructo", ProductoController::class);
+    Route::apiResource("cliente", ClienteController::class);
+    Route::apiResource("pedido", PedidoController::class);
+
+});
+
+Route::get("no-autorizado", function(){
+    return ["message" => "No tienes permiso"];
+})->name("login");

@@ -9,11 +9,11 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    public function pedidos(){
-        return $this ->hasMany(Pedido::class)->withPivot(["cantidad"])-> withTimestamps();
+    public function podructos(){
+        return $this ->belongsTo(podructo::class)->withPivot(["cantidad"])-> withTimestamps();
     }
 
     public function cliente(){
-        return $this ->hasMany(Cliente::class);
+        return $this ->belongsTo(Cliente::class);
     }
 }

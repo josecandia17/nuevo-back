@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('podructos', function (Blueprint $table) {
             $table->id(); //pk, ai, BigInt Unsigned 
-            $table-> string("nombre", 200);
+            $table->string("nombre", 200);
             $table->decimal("precio", 10, 2)->default(0);
-            $table->integer("cantidad")->default(0);
+            $table->integer("stock")->default(0);
             $table->text("descripcion")->nullValue();
             $table->boolean("estado")->default(true);
             $table->string("imagen")->nullable();

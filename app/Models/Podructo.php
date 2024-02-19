@@ -10,10 +10,10 @@ class Podructo extends Model
     use HasFactory;
 
     public function categoria(){
-        return $this ->hasMany(Categoria::class);
+        return $this ->belongsTo(Categoria::class);
     }
 
     public function pedidos(){
-        return $this ->hasMany(Pedido::class)->withPivot(["cantidad"])-> withTimestamps();
+        return $this ->belongsTo(Pedido::class)->withPivot(["cantidad"])-> withTimestamps();
     }
 }

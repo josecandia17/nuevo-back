@@ -10,7 +10,7 @@ class Categoria extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function podructos(){
-        return $this ->hasMany(Podructo::class);
+    public function productos(){
+        return $this->hasMany(Producto::class);
     }
 }

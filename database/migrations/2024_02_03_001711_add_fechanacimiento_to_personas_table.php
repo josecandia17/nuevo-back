@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('personas', function (Blueprint $table) {
             $table->date("fecha_nacimiento")->nullable()->after("telefono");
+            
         });
     }
 

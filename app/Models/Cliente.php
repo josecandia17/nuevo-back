@@ -9,7 +9,7 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    public function pedidos(){
-        return $this ->hasMany(Pedido::class);
+    public function pedidos() {
+        return $this->hasMany(Pedido::class);
     }
 }

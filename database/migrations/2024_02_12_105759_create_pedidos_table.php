@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->dateTime("fecha");
             $table->integer("estado")->default(1);
-            $table->text("observaciones");
+            $table->text("observacion");
 
             // N:1
             $table->bigInteger("cliente_id")->unsigned();

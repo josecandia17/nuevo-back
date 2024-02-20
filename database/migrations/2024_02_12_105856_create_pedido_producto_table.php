@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->bigInteger("pedido_id")->unsigned();
             $table->bigInteger("producto_id")->unsigned();
-            //$table->primary(["pedido_id", "producto_id"]);
-            $table->integer("catidad")->default(1);
+            // $table->primary(["pedido_id", "producto_id"]);
+            $table->integer("cantidad")->default(1);
             // N:M
             $table->foreign("pedido_id")->references("id")->on("pedidos");
-            $table->foreign("producto_id")->references("id")->on("podructos");
+            $table->foreign("producto_id")->references("id")->on("productos");
+
             $table->timestamps();
         });
     }

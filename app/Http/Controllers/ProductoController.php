@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Podructo;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -17,12 +17,12 @@ class ProductoController extends Controller
         $limit = isset($request->limit)?$request->limit: 10;
 
         if($buscar){
-            $productos = Podructo::orderBy('id', 'desc')
+            $productos = Producto::orderBy('id', 'desc')
                                     ->where('nombre', 'like', '%'.$buscar.'%')
                                     ->with("categoria")
                                     ->paginate($limit);
         }else{
-            $productos = Podructo::orderBy('id', 'desc')->with("categoria")->paginate($limit);
+            $productos = Producto::orderBy('id', 'desc')->with("categoria")->paginate($limit);
         }
         return response()->json($productos, 200);
     }
@@ -38,7 +38,7 @@ class ProductoController extends Controller
             "categoria_id" => "required"
         ]);
         // guardar
-        $prod = new Podructo();
+        $prod = new Producto();
         $prod->nombre = $request->nombre;
         $prod->precio = $request->precio;
         $prod->stock = $request->stock;
@@ -54,7 +54,7 @@ class ProductoController extends Controller
      */
     public function show(string $id)
     {
-        $producto = Podructo::with('categoria')->findOrFail($id);
+        $producto = Producto::with('categoria')->findOrFail($id);
         return response()->json($producto, 200);
     }
 
@@ -69,7 +69,7 @@ class ProductoController extends Controller
             "categoria_id" => "required"
         ]);
 
-        $prod = Podructo::findOrFail($id);
+        $prod = Producto::findOrFail($id);
         // guardar
         $prod->nombre = $request->nombre;
         $prod->precio = $request->precio;
@@ -87,7 +87,7 @@ class ProductoController extends Controller
      */
     public function destroy(string $id)
     {
-        $prod = Podructo::findOrFail($id);
+        $prod = Producto::findOrFail($id);
         $prod->delete();
         return response()->json(["message" => "Producto eliminado"], 200);
     }
@@ -98,7 +98,7 @@ class ProductoController extends Controller
             $file->move("imagen/", $direccion_imagen);
             $direccion_imagen = "imagen/". $direccion_imagen;
 
-            $prod = Podructo::find($id);
+            $prod = Producto::find($id);
             $prod->imagen = $direccion_imagen;
             $prod->update();
             return response()->json(["message" => "Imagen Producto Actualizado"], 200);

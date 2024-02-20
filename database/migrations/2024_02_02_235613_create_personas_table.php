@@ -12,23 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('personas', function (Blueprint $table) {
-            $table->id(); // id, ai, pk, bigInt, unsigned 
+            $table->id(); // id, ai, pk, bigInt, unsigned
+
             $table->string("nombres", 50);
             $table->string("apellidos", 50)->nullable();
             $table->string("ci_nit", 20)->nullable();
-            $table->string("direccion", 250)->nullable();
+            $table->string("direccion")->nullable();
             $table->string("telefono", 20)->nullable();
 
-            //1:1
-
+            // 1:1
             $table->bigInteger("user_id")->unsigned();
-            //$table->unsignedBigInteger("user_id")->unsigned();
-            $table->foreign("user_id")->references("id")->on("users");
-
-
-
-            $table->timestamps();
-            $table->softDeletes();
+            // $table->unsignedBigInteger("user_id");
+            $table->foreign("user_id")->references("id")->on("users");        
+        
+            $table->timestamps(); // created_at, updated_at
+            $table->softDeletes(); // deleted_at
         });
     }
 

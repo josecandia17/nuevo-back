@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- use App\Models\Categoria;
+use App\Models\Categoria;
 
 class CategoriaController extends Controller
 {
@@ -12,9 +12,9 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categoria = Categoria::get();
+        $categorias = Categoria::orderBy('id', 'desc')->get();
 
-        return response()->json($categoria, 200);
+        return response()->json($categorias, 200);
     }
 
     /**
@@ -22,20 +22,18 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //validar
-
+        // validar
         $request->validate([
-            "nombre" => "required|unique:categorias"
+            "nombre"=> "required|unique:categorias"
         ]);
 
-        //guardar 
+        // guardar
         $cat = new Categoria();
         $cat->nombre = $request->nombre;
         $cat->detalle = $request->detalle;
         $cat->save();
 
-        return response()->json(["mensaje" => "Categoria Registrado"], 201);
-
+        return response()->json(["message" => "Categoria Registrada"], 201);
     }
 
     /**
@@ -46,7 +44,6 @@ class CategoriaController extends Controller
         $categoria = Categoria::find($id);
 
         return response()->json($categoria, 200);
-
     }
 
     /**
@@ -54,10 +51,9 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //validar
-
+        // validar
         $request->validate([
-            "nombre" => "required|unique:categorias,nombre,$id"
+            "nombre"=> "required|unique:categorias,nombre,$id"
         ]);
 
         $cat = Categoria::find($id);
@@ -65,10 +61,7 @@ class CategoriaController extends Controller
         $cat->detalle = $request->detalle;
         $cat->update();
 
-        return response()->json(["mensaje" => "Categoria Modificada"], 200);
-
-
-
+        return response()->json(["message" => "Categoria Modificada"], 200);
     }
 
     /**
@@ -79,7 +72,6 @@ class CategoriaController extends Controller
         $cat = Categoria::find($id);
         $cat->delete();
 
-        return response()->json(["mensaje" => "Categoria Eliminada"], 200);
-
+        return response()->json(["message" => "Categoria Eliminada"], 200);
     }
 }

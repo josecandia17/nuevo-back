@@ -28,11 +28,11 @@ Route::prefix('/v1/auth')->group(function (){
 
 Route::middleware('auth:sanctum')->group(function(){
 
-    Route::post("podructo/{id}/actualizar-imagen",[ProductoController::class, "actualizarImagen"]);
+    Route::post("producto/{id}/actualizar-imagen",[ProductoController::class, "actualizarImagen"]);
 
     Route::apiResource("categoria", CategoriaController::class);
     Route::apiResource("usuario", UsuarioController::class);
-    Route::apiResource("podructo", ProductoController::class);
+    Route::apiResource("producto", ProductoController::class);
     Route::apiResource("cliente", ClienteController::class);
     Route::apiResource("pedido", PedidoController::class);
 

@@ -1,0 +1,36 @@
+GET http://127.0.0.1:8000/api/producto
+
+### guardar prtoductop
+
+POST http://127.0.0.1:8000/api/producto
+Accept: application/json
+Content-Type: application/json
+
+{
+    "nombre": "PARLANTES de prueba",
+    "precio": 40.98,
+    "stock": 24,
+    "descripcion": "Parlante gamer",
+    "categoria_id": 3
+}
+
+### mostrar producto
+GET http://127.0.0.1:8000/api/producto/5
+Accept: application/json
+
+### modificar
+PUT http://127.0.0.1:8000/api/producto/5
+Accept: application/json
+Content-Type: application/json
+
+{
+  "nombre": "ZAPATO MODIFICADO",
+  "precio": 250.98,
+  "stock": 40,
+  "descripcion": "zapatos de prueba",
+  "estado": true,
+  "categoria_id": 1
+}
+
+### eliminar
+DELETE http://127.0.0.1:8000/api/producto/7

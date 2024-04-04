@@ -1,12 +1,12 @@
-POST  http://127.0.0.1:8000/api/v1/auth/register
+POST http://127.0.0.1:8000/api/v1/auth/register
 Accept: application/json
 Content-Type: application/json
 
 {
-    "name": "Admin",
-    "email": "admin@gmail.com",
-    "password": "123456",
-    "c_password": "123456"
+    "name": "admin",
+    "email": "admin@mail.com",
+    "password": "admin54321",
+    "c_password": "admin54321"
 }
 
 ### login
@@ -16,22 +16,22 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "jose@gmail.com",
-    "password": "123456"
-    
+    "email": "admin@mail.com",
+    "password": "admin54321"
 }
 
-### perfil 
+### Perfil
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
-Authorization: Bearer 1|KA7D9baM6IOGTMJ3HJpvU528VeHYDqTUPJPkHOZsaaae08b6
-### perfil 2 
+Authorization: Bearer 1|yE1RNDrnBfLzGTqe6aNy5MMrs4LjMSuoa3nHuMgx22267809
+
+### Perfil 2
 GET http://127.0.0.1:8000/api/v1/auth/perfil
 Accept: application/json
-Authorization: Bearer 8|kyu6CRumkkK1zStOIEIWeZLTb4M8Ah6KqmZZo6M60c126739
+Authorization: Bearer 32|cEVdZt4VwDiNu8EAA3bSVXtC5oFwmNjW5FFpthiF
 
-
-### logout
-POST  http://127.0.0.1:8000/api/v1/auth/logout
+### Logout
+POST http://127.0.0.1:8000/api/v1/auth/logout
 Accept: application/json
-Authorization: Bearer 62|Zk4aSrQCFW7ILQbHnG5i60tZl7FNGOzM6ToXvJFR2744177a
+Authorization: Bearer 6|RGG4lpvBxlJdb6X3T0epe6tOJsq5B9NF4VeY1R6t
+

@@ -1,0 +1,17 @@
+### listar pedidos
+GET http://127.0.0.1:8000/api/pedido
+Authorization: Bearer 31|Dkj4fiuNK9HzbZFUSGrEfYTmIS1EgmwiSthSwbz5
+
+### Guardar pedido
+POST http://127.0.0.1:8000/api/pedido
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 31|Dkj4fiuNK9HzbZFUSGrEfYTmIS1EgmwiSthSwbz5
+
+{
+    "cliente_id": 2,
+    "productos": [
+        {"producto_id": 2, "cantidad": 1},
+        {"producto_id": 3, "cantidad": 2}
+    ]
+}

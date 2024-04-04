@@ -1,34 +1,29 @@
-GET http://127.0.0.1:8000/api/categoria 
+GET http://127.0.0.1:8000/api/categoria
 
+### guardar categoria
 
-### guardar categoria 
-
-POST http://127.0.0.1:8000/api/categoria 
+POST http://127.0.0.1:8000/api/categoria
 Content-Type: application/json
 Accept: application/json
 
 {
     "nombre": "ELECTRONICOS",
-    "detalle": "Electronicos para pc"
-
+    "detalle": "Electronicos para PC"
 }
 
-### mostrar actegoria 
+### mostrar categoria
 
 GET http://127.0.0.1:8000/api/categoria/2
 
-### modificar categoria 
-
-PUT http://127.0.0.1:8000/api/categoria/2 
+### modificar
+PUT http://127.0.0.1:8000/api/categoria/2
 Content-Type: application/json
 Accept: application/json
 
 {
     "nombre": "ELECTRONICOS MODIFICADO",
     "detalle": "Electronicos para PC actualizado"
-
 }
 
-### eliminar categoria 
-DELETE  http://127.0.0.1:8000/api/categoria/3 
-
+### eliminar
+DELETE http://127.0.0.1:8000/api/categoria/1
